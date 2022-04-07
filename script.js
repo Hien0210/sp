@@ -1,45 +1,88 @@
-//--------- Them sp vao giô-------------
-
-const btn = document.querySelectorAll(".addtocart");
-btn.forEach(function(button,index){
-button.addEventListener("click", function(event){
-    var btnitem = event.target
-    var product = btnitem.parentElement
-    var productimg = product.querySelector("img").src
-    var productname = product.querySelector("p").innerText
-    var productprice = product.querySelector(".product-pricenew").innerText
-    addcart(productimg,productname,productprice)
-    
-})
-})
-function addcart(productimg,productname,productprice){
-    var addtr = document.createElement("tr")
-    var cartitem = document.querySelectorAll("tbody tr")
-    var cartitemlength = cartitem.length
-    var productT = document.querySelectorAll(".productname")
-    for ( var i= 0; i < cartitemlength; i++){
-        if(productT[i].innerText == productname) {
-            alert("Sản phẩm của bạn đã có trong giỏ hàng")
-            return
-        }
-    }
-    var trcontent = `<tr> <td style="display: flex; align-items: center;width: 300px;"><img style="width: 70px;"src="`+productimg+`" alt=""><span class= " productname">`+productname+`</span></td> <td><span class= "productprice">`+productprice+`</span> <sup>đ</sup></td> <td><input style="width: 30px; " type="number" value="1" min="1"></td>   <td style="cursor: pointer;" class= "xoa">Xoá</td></tr>`
-    addtr.innerHTML = trcontent
-    var carttable = document.querySelector("tbody")
-    carttable.append(addtr)
- //----------xoa sp----------------   
+window.addEventListener('load', () =>{
+const show = () =>{
+    const shoppinglist = localStorage.getItem("shoppinglist")
+    ? JSON.parse(localStorage.getItem("shoppinglist"))
+    : [];
+    localStorage.setItem("shoppinglist", JSON.stringify(shoppinglist));
+    let carttable = document.querySelector("tbody")
+    carttable.innerHTML = ``
+    shoppinglist.map((d,index) =>{        
+        let addtr = document.createElement("tr")
+        addtr.innerHTML = `<tr> <td style="display: flex; align-items: center;width: 300px;"><img style="width: 70px;"src="`+d.img+`" alt=""><span class= " productname">`+d.name+`</span></td> <td><span class= "productprice">`+d.price+`</span> <sup>đ</sup></td> <td><input style="width: 30px; " type="number" value="`+d.num+`" min="1"></td>   <td style="cursor: pointer;" class= "xoa">Xoá</td></tr>`
+        carttable.append(addtr)
+        
+    })
+    var nocart = document.querySelector(".nocart")
+    var cartactive = document.querySelector(".cartactive")
+    if ( shoppinglist == 0){
+        cartactive.style.display = 'none'
+       
+    }else{
+        nocart.style.display= 'none'
+        
+    }  
+//----------xoa sp----------------   
     var btnxoa = document.querySelectorAll(".xoa")    
     btnxoa.forEach(function(button,index){
         button.addEventListener("click",(event)=>{
-            var btnitem1 = event.target
-            var btnproduct1 = btnitem1.parentElement
-            btnproduct1.remove()
-            cartotal()
+            const shoppinglist = localStorage.getItem("shoppinglist")
+        ? JSON.parse(localStorage.getItem("shoppinglist"))
+        : [];
+            shoppinglist.splice(index, 1);
+            localStorage.setItem("shoppinglist", JSON.stringify(shoppinglist));
+            show();
+            cartotal()            
         })
+    })  
+//--------------update----------
+    var cartitem1 = document.querySelectorAll("tbody tr")
+    cartitem1.forEach((button,index) =>{
+        var inputnumber = cartitem1[index].querySelector("input")
+        inputnumber.onclick = () => {        
+            shoppinglist[index].num = inputnumber.value
+            console.log(shoppinglist[index].num);
+       
+            localStorage.setItem("shoppinglist", JSON.stringify(shoppinglist));    
+         
+        cartotal();  
+        }  
     })
- cartotal()
-}
-
+    }        
+show()    
+cartotal()
+//--------- Them sp vao giô-------------
+const btn = document.querySelectorAll(".addtocart")
+btn.forEach(function(button,index){
+    button.addEventListener("click", function(event){
+        var btnitem = event.target
+        var product = btnitem.parentElement
+        var productimg = product.querySelector("img").src
+        var productname = product.querySelector("p").innerText
+        var productprice = product.querySelector(".product-pricenew").innerText
+        var cartitem = document.querySelectorAll("tbody tr")
+        var cartitemlength = cartitem.length
+        var productT = document.querySelectorAll(".productname")
+        for ( var i= 0; i < cartitemlength; i++){
+          if(productT[i].innerText === productname) {
+              alert("Sản phẩm của bạn đã có trong giỏ hàng")
+              return
+            }
+        }     
+        const shoppinglist = localStorage.getItem("shoppinglist")
+        ? JSON.parse(localStorage.getItem("shoppinglist"))
+        : [];
+        shoppinglist.push({
+            name: productname,
+            price: productprice,
+            img: productimg, 
+            num: 1,           
+          });
+        localStorage.setItem("shoppinglist", JSON.stringify(shoppinglist));  
+        console.log(shoppinglist);
+        show()
+        cartotal()
+    })
+})
 //--------- Total price-------------
 
 function cartotal(){
@@ -54,44 +97,13 @@ function cartotal(){
         total = total + totalitem
         // totalA = (total *1000000).toLocaleString('de-DE') 
         var num = document.querySelector(".header-cart-num")
-        num.innerHTML = caritemlength    
-       
+        num.innerHTML = caritemlength       
     }
     var cartotalA = document.querySelector(".totalnumber")   
        cartotalA.innerHTML = (total *1000000).toLocaleString('de-DE')
-    
-        
-    update()  
-    attendcart()
-   }   
-   
+   } 
+})   
 
-//------------cap nhat so sp---------------
-
-function update(){
-    var cartitem1 = document.querySelectorAll("tbody tr")
-    for (var i =0; i< cartitem1.length;i++){
-        var inputvalue1 = cartitem1[i].querySelector("input")
-        inputvalue1.onclick = () => {
-        cartotal();  
-       
-       
-        }
-    }
-        
-}
-//------------hien thi cart---------------
-function attendcart(){
-    var cartitem = document.querySelectorAll("tbody tr")
-    var nocart = document.querySelector(".nocart")
-    var cartt = document.querySelector(".cart")
-    
-    if ( cartitem != null){
-        nocart.style.display = 'none'
-        cartt.classList.add("cartactive")
-        
-    } 
-}
 //---------------chatbox------------------
 const mess = document.querySelector('.fa-facebook-messenger')
 const active = document.querySelector('.chatboxactive')
@@ -117,8 +129,7 @@ send.onclick = () =>{
         checkboxlistitem1.innerHTML = `<div class="chatboxlistitem1">Chào bạn! Mình có thể giúp gì được cho bạn?</div>`
         checkboxlist.append(checkboxlistitem1)
     }
-    }
-    
+    }    
 }
 document.onkeydown = function(e){
     if(e.which ==13){
@@ -150,7 +161,21 @@ x.onclick = () =>{
     })
     
 }
-
+//-----------------responsive--------------
+const menu = document.querySelector(".menu");
+const options = document.querySelector(".header-nav");
+console.log(menu);
+menu.addEventListener("click", () => {
+    console.log(1);
+  options.classList.add("header-nav-active");
+  turnoff = document.createElement('div')
+  turnoff.innerHTML = `<i class="fa-solid fa-xmark"></i>`
+  options.append(turnoff)
+  turnoff.classList.add("turnoff");
+  turnoff.addEventListener('click', () =>{
+      options.classList.remove("header-nav-active")
+  })
+});
 
 
 

@@ -4,15 +4,20 @@
     <head>
         <title>Shopping Friday</title>
         <meta charset="urf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="main.css"> 
+        <link rel="stylesheet" href="response.css"> 
         <link rel="stylesheet" href="./fontawesome-free-6.0.0-web/css/all.min.css">
     </head>
     <!-- phàn thân-->
     <body>
         <div class="app">
-            <header class="header">
+            <header id="header">
                 <div class="grid1">
                     <div class="header-wwith-search">
+                        <span class="menu">
+                            <i class="fa-solid fa-bars"></i>
+                          </span>
                         <div class="header-logo"> 
                             <a href="index.html">
                                 <img class="header-logo-img" src="./logo-fridayshopping.png" alt="">
@@ -30,7 +35,7 @@
                                 <div class="header-cart-list nocart"> 
                                     <img src="./nocart.png" alt="" class=" nocartimg">
                                 </div>  
-                                <section class="cart ">
+                                <section class="cart  cartactive">
                                     <h2>Cart</h2>
                                     <form action="">
                                         <table>
@@ -64,26 +69,26 @@
                                             <p style="font-weight: bold;" > Tổng tiền
                                                 <span style="padding-left:47px" class="totalnumber"> 0</span> <sup>đ</sup>
                                             </p>    
-                                        </div>
-                                        <button class="thanhtoan">Thanh toán</button>
+                                        </div>                                       
                                     </form>
+                                    <div class="thanhtoan"><a href="../checkout/checkout.html" class="thanhtoanitem">Thanh Toán</a></div>
                                 </section>
                             </div>
                         </div>
                     </div>   
-                    <nav class=" header-nav">
+                    <nav class=" header-nav">            
                         <ul class=" header-nav-list">
                             <li class=" header-nav-item-strong  headerhasnoti">Thương Hiệu 
-                                <i class="fa-solid fa-angle-down"></i>
+                                <i class="fa-solid fa-angle-down" id="fa-angle" style="padding-left: 5px;"></i>
                                 <div class=" header-brand">
                                         <div class="header-brand-ts">
                                             <h5 class=" header-brand-1"> Đồng Hồ Thuỵ Sĩ</h5>
                                             <ul class=" header-brand-list">
                                                 <li class="header-brand-item">
-                                                    <a href="" class="header-brand-link"> Tissot</a>
+                                                    <a href="#Tissot" class="header-brand-link"> Tissot</a>
                                                 </li>
                                                 <li class="header-brand-item">
-                                                    <a href="" class="header-brand-link"> Longines</a>
+                                                    <a href="#Longines" class="header-brand-link"> Longines</a>
                                                 </li>
                                                 <li class="header-brand-item">
                                                     <a href="" class="header-brand-link"> Frederique Constant</a>
@@ -94,23 +99,50 @@
                                             <h5 class=" header-brand-1"> Đồng Hồ Nhật Bản</h5>
                                             <ul class=" header-brand-list">
                                                 <li class="header-brand-item">
-                                                    <a href="" class="header-brand-link"> Seiko</a>
+                                                    <a href="#G-Shock" class="header-brand-link"> G-Shock</a>
                                                 </li>
                                                 <li class="header-brand-item">
                                                     <a href="" class="header-brand-link"> Orient</a>
                                                 </li>
                                                 <li class="header-brand-item">
-                                                    <a href="" class="header-brand-link"> Casio</a>
+                                                    <a href="" class="header-brand-link">Seiko </a>
                                                 </li>
                                             </ul>
                                         </div>
-                                </div>
-                            </li>
+                                </div>   
+                                <div class="header-brandrespon">
+                                    <!-- <h6 style="margin-bottom: 5px;margin-left: 0px;padding-left: 0px;font-size: medium;" class=" header-nav-item "> Đồng Hồ Thuỵ Sĩ</h6> -->
+                                    <ul style="list-style: none; margin-top: 10px; " class=" header-nav-list">
+                                        <li>
+                                            <a href="#Tissot" class=" header-nav-item " style="text-decoration: none; color: black;margin: 0px;"> Tissot</a>
+                                        </li>
+                                        <li >
+                                            <a href="#Longines" class=" header-nav-item " style="text-decoration: none; color: black;margin: 0px;"> Longines</a>
+                                        </li>
+                                        <li >
+                                            <a href="" class=" header-nav-item " style="text-decoration: none; color: black;margin: 0px;"> Frederique Constant</a>
+                                        </li>
+                                    </ul>
+                                <!-- <h6 style="margin-bottom: 5px;margin-left: 0px;padding-left: 0px;font-size: medium;" class=" header-nav-item "> Đồng Hồ Nhật Bản</h6> -->
+                                    <ul style="list-style: none;margin-top: 10px;"  class=" header-nav-list"> 
+                                        <li >
+                                            <a href="#G-Shock" class=" header-nav-item " style="text-decoration: none; color: black;margin: 0px;" > G-Shock</a>
+                                        </li>
+                                        <li >
+                                            <a href="" class=" header-nav-item " style="text-decoration: none; color: black;margin: 0px;"> Orient</a>
+                                        </li>
+                                        <li >
+                                            <a href="" class=" header-nav-item " style="text-decoration: none; color: black;margin: 0px;">Seiko </a>
+                                        </li>
+                                    </ul>        
+                                </div>                             
+                            </li>  
+                                                  
                             <li class=" header-nav-item ">Đồng Hồ Nam</li>
                             <li class=" header-nav-item ">Đồng Hồ Nữ</li>
                             <li class=" header-nav-item ">Hàng Like New</li>
-                            <li class=" header-nav-item ">Liên Hệ</li>
-                            <li class=" header-nav-item ">Kinh Nghiệm</li>
+                            <div class="signin"><li class=" header-nav-item "> <a href="../SignIn/index.html" > Đăng nhập</a></li></div>
+                            <div class="dangky"><li class=" header-nav-item "> <a href="../SignUp/index.html" > Đăng ký</a></li></div>                            
                         </ul>
                         <div class=" header-nav-underline"></div>
                     </nav>
@@ -130,14 +162,13 @@
                 </div>
                 <div class="product">
                     <div class="product-title"> 
-                        <b style="width: 570px; display: block; height: 2px; opacity: .1; background-color: currentColor;"></b>
-                        <span style="font-size:150%">Tissot</span>
-                        <b style="width: 570px; display: block; height: 2px; opacity: .1; background-color: currentColor;"></b>
+                        <b style="width: 35%; display: block; height: 2px; opacity: .1; background-color: currentColor;"></b>
+                        <span style="font-size:150%" id="Tissot">Tissot</span>
+                        <b style="width: 35%; display: block; height: 2px; opacity: .1; background-color: currentColor;"></b>
                     </div>
                     <div class="grid">
                          <div class="grid-row">
-                            <div class="grid-column">
-                               
+                            <!-- <div class="grid-column">                               
                                     <div class="product-home">
                                         <img class="product-img" src="https://fridayshopping.vn/wp-content/uploads/2020/03/236_T109.610.36.032.00.jpg" alt="">
                                         <a href="index.html" style="text-decoration: none; color: black;" ><p class="product-name">Tissot T109.610.36.032.00 Kính Sapphire</p>  </a>      
@@ -237,8 +268,533 @@
                                         <button style="margin: 10px; width: 131px; margin-left: 48px; cursor: pointer " class="addtocart">Thêm vào giỏ hàng</button>                  
                                     </div>        
                                  
-                            </div>
+                            </div> -->
                         </div>
+                    </div>
+                    <div class="product-title"> 
+                        <b style="width: 35%; display: block; height: 2px; opacity: .1; background-color: currentColor;"></b>
+                        <span style="font-size:150%" id="Longines">Longines</span>
+                        <b style="width: 35%; display: block; height: 2px; opacity: .1; background-color: currentColor;"></b>
+                    </div>
+                    <div class="grid">
+                         <div class="grid-row1">
+                            <!-- <div class="grid-column">                               
+                                    <div class="product-home">
+                                        <img class="product-img" src="https://fridayshopping.vn/wp-content/uploads/2020/03/236_T109.610.36.032.00.jpg" alt="">
+                                        <a href="index.html" style="text-decoration: none; color: black;" ><p class="product-name">Tissot T109.610.36.032.00 Kính Sapphire</p>  </a>      
+                                         <div class="product-price">
+                                             <span class="product-priceold">7.310.000</span> <sup>đ</sup>
+                                             <span class="product-pricenew">5.848.000</span> <sup>đ</sup>
+                                        </div>
+                                         <div class="product-star">
+                                             <i class="fa-solid fa-star"></i>
+                                             <i class="fa-solid fa-star"></i>
+                                             <i class="fa-solid fa-star"></i>
+                                             <i class="fa-solid fa-star"></i>
+                                             <i class="fa-solid fa-star"></i>
+                                        </div>  
+                                        <button style="margin: 10px; width: 131px; margin-left: 48px; cursor: pointer " class="addtocart">Thêm vào giỏ hàng</button>            
+                                    </div>        
+                                       
+                            </div>
+                            <div class="grid-column">
+                                
+                                    <div class="product-home">
+                                        <img class="product-img" src="https://fridayshopping.vn/wp-content/uploads/2020/10/36_T063.210.11.057.00-700x700.jpg" alt="">
+                                        <a href="index.html" style="text-decoration: none; color: black;" > <p class="product-name">Tissot T063.210.11.057.00 Kính Sapphire
+                                        </p></a>  
+                                         <div class="product-price">
+                                             <span class="product-priceold">10.010.000</span> <sup>đ</sup>
+                                             <span class="product-pricenew">8.508.000</span> <sup>đ</sup>
+                                        </div>
+                                         <div class="product-star">
+                                             <i class="fa-solid fa-star"></i>
+                                             <i class="fa-solid fa-star"></i>
+                                             <i class="fa-solid fa-star"></i>
+                                             <i class="fa-solid fa-star"></i>
+                                             <i class="fa-solid fa-star"></i>
+                                        </div>  
+                                        <button style="margin: 10px; width: 131px; margin-left: 48px; cursor: pointer " class="addtocart">Thêm vào giỏ hàng</button>                     
+                                    </div>        
+                                             
+                            </div>
+                            <div class="grid-column">
+                                
+                                    <div class="product-home">
+                                        <img class="product-img" src="https://fridayshopping.vn/wp-content/uploads/2020/10/140_T086.407.16.031.00.jpg" alt="">
+                                        <a href="index.html" style="text-decoration: none; color: black;" > <p class="product-name">Tissot T086.407.16.031.00 Kính Sapphire, Bộ Máy Cơ </p> </a>  
+                                         <div class="product-price">
+                                             <span class="product-priceold">23.130.000</span> <sup>đ</sup>
+                                             <span class="product-pricenew">19.660.000</span> <sup>đ</sup>
+                                        </div>
+                                         <div class="product-star">
+                                             <i class="fa-solid fa-star"></i>
+                                             <i class="fa-solid fa-star"></i>
+                                             <i class="fa-solid fa-star"></i>
+                                             <i class="fa-solid fa-star"></i>
+                                             <i class="fa-solid fa-star"></i>
+                                        </div>   
+                                        <button style="margin: 10px; width: 131px; margin-left: 48px; cursor: pointer " class="addtocart">Thêm vào giỏ hàng</button>                    
+                                    </div>        
+                                            
+                            </div>
+                            <div class="grid-column">
+                                
+                                    <div class="product-home">
+                                        <img class="product-img" src="https://fridayshopping.vn/wp-content/uploads/2020/03/47_T035.207.22.011.00-1-700x700.jpg" alt="">
+                                        <a href="index.html" style="text-decoration: none; color: black;" >   <p class="product-name">Tissot T035.207.22.011.00 Kính Sapphire, Bộ Máy Cơ </p></a> 
+                                         <div class="product-price">
+                                             <span class="product-priceold">24.320.000</span> <sup>đ</sup>
+                                             <span class="product-pricenew">20.672.000</span> <sup>đ</sup>
+                                        </div>
+                                         <div class="product-star">
+                                             <i class="fa-solid fa-star"></i>
+                                             <i class="fa-solid fa-star"></i>
+                                             <i class="fa-solid fa-star"></i>
+                                             <i class="fa-solid fa-star"></i>
+                                             <i class="fa-solid fa-star"></i>
+                                        </div>       
+                                        <button style="margin: 10px; width: 131px; margin-left: 48px; cursor: pointer " class="addtocart">Thêm vào giỏ hàng</button>                
+                                    </div>        
+                                              
+                            </div>
+                            <div class="grid-column">
+                               
+                                    <div class="product-home">
+                                        <img class="product-img" src="https://fridayshopping.vn/wp-content/uploads/2020/03/428_T063.428.33.038.00-3.jpg" alt="">
+                                        <a href="index.html" style="text-decoration: none; color: black;" >
+                                        <p class="product-name">Tissot T063.428.33.038.00 Kính Sapphire, Bộ Máy Cơ</p></a>              
+                                         <div class="product-price">
+                                             <span class="product-priceold">25.290.000 </span> <sup>đ</sup> 
+                                             <span class="product-pricenew">20.232.000 </span> <sup>đ</sup>
+                                        </div>
+                                         <div class="product-star">
+                                             <i class="fa-solid fa-star"></i>
+                                             <i class="fa-solid fa-star"></i>
+                                             <i class="fa-solid fa-star"></i>
+                                             <i class="fa-solid fa-star"></i>
+                                             <i class="fa-solid fa-star"></i>
+                                        </div>     
+                                        <button style="margin: 10px; width: 131px; margin-left: 48px; cursor: pointer " class="addtocart">Thêm vào giỏ hàng</button>                  
+                                    </div>        
+                                 
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="product-title"> 
+                        <b style="width: 35%; display: block; height: 2px; opacity: .1; background-color: currentColor;"></b>
+                        <span style="font-size:150%" id="G-Shock">G-Shock</span>
+                        <b style="width: 35%; display: block; height: 2px; opacity: .1; background-color: currentColor;"></b>
+                    </div>
+                    <div class="grid">
+                         <div class="grid-row2">
+                            <!-- <div class="grid-column">                               
+                                    <div class="product-home">
+                                        <img class="product-img" src="https://fridayshopping.vn/wp-content/uploads/2020/03/236_T109.610.36.032.00.jpg" alt="">
+                                        <a href="index.html" style="text-decoration: none; color: black;" ><p class="product-name">Tissot T109.610.36.032.00 Kính Sapphire</p>  </a>      
+                                         <div class="product-price">
+                                             <span class="product-priceold">7.310.000</span> <sup>đ</sup>
+                                             <span class="product-pricenew">5.848.000</span> <sup>đ</sup>
+                                        </div>
+                                         <div class="product-star">
+                                             <i class="fa-solid fa-star"></i>
+                                             <i class="fa-solid fa-star"></i>
+                                             <i class="fa-solid fa-star"></i>
+                                             <i class="fa-solid fa-star"></i>
+                                             <i class="fa-solid fa-star"></i>
+                                        </div>  
+                                        <button style="margin: 10px; width: 131px; margin-left: 48px; cursor: pointer " class="addtocart">Thêm vào giỏ hàng</button>            
+                                    </div>        
+                                       
+                            </div>
+                            <div class="grid-column">
+                                
+                                    <div class="product-home">
+                                        <img class="product-img" src="https://fridayshopping.vn/wp-content/uploads/2020/10/36_T063.210.11.057.00-700x700.jpg" alt="">
+                                        <a href="index.html" style="text-decoration: none; color: black;" > <p class="product-name">Tissot T063.210.11.057.00 Kính Sapphire
+                                        </p></a>  
+                                         <div class="product-price">
+                                             <span class="product-priceold">10.010.000</span> <sup>đ</sup>
+                                             <span class="product-pricenew">8.508.000</span> <sup>đ</sup>
+                                        </div>
+                                         <div class="product-star">
+                                             <i class="fa-solid fa-star"></i>
+                                             <i class="fa-solid fa-star"></i>
+                                             <i class="fa-solid fa-star"></i>
+                                             <i class="fa-solid fa-star"></i>
+                                             <i class="fa-solid fa-star"></i>
+                                        </div>  
+                                        <button style="margin: 10px; width: 131px; margin-left: 48px; cursor: pointer " class="addtocart">Thêm vào giỏ hàng</button>                     
+                                    </div>        
+                                             
+                            </div>
+                            <div class="grid-column">
+                                
+                                    <div class="product-home">
+                                        <img class="product-img" src="https://fridayshopping.vn/wp-content/uploads/2020/10/140_T086.407.16.031.00.jpg" alt="">
+                                        <a href="index.html" style="text-decoration: none; color: black;" > <p class="product-name">Tissot T086.407.16.031.00 Kính Sapphire, Bộ Máy Cơ </p> </a>  
+                                         <div class="product-price">
+                                             <span class="product-priceold">23.130.000</span> <sup>đ</sup>
+                                             <span class="product-pricenew">19.660.000</span> <sup>đ</sup>
+                                        </div>
+                                         <div class="product-star">
+                                             <i class="fa-solid fa-star"></i>
+                                             <i class="fa-solid fa-star"></i>
+                                             <i class="fa-solid fa-star"></i>
+                                             <i class="fa-solid fa-star"></i>
+                                             <i class="fa-solid fa-star"></i>
+                                        </div>   
+                                        <button style="margin: 10px; width: 131px; margin-left: 48px; cursor: pointer " class="addtocart">Thêm vào giỏ hàng</button>                    
+                                    </div>        
+                                            
+                            </div>
+                            <div class="grid-column">
+                                
+                                    <div class="product-home">
+                                        <img class="product-img" src="https://fridayshopping.vn/wp-content/uploads/2020/03/47_T035.207.22.011.00-1-700x700.jpg" alt="">
+                                        <a href="index.html" style="text-decoration: none; color: black;" >   <p class="product-name">Tissot T035.207.22.011.00 Kính Sapphire, Bộ Máy Cơ </p></a> 
+                                         <div class="product-price">
+                                             <span class="product-priceold">24.320.000</span> <sup>đ</sup>
+                                             <span class="product-pricenew">20.672.000</span> <sup>đ</sup>
+                                        </div>
+                                         <div class="product-star">
+                                             <i class="fa-solid fa-star"></i>
+                                             <i class="fa-solid fa-star"></i>
+                                             <i class="fa-solid fa-star"></i>
+                                             <i class="fa-solid fa-star"></i>
+                                             <i class="fa-solid fa-star"></i>
+                                        </div>       
+                                        <button style="margin: 10px; width: 131px; margin-left: 48px; cursor: pointer " class="addtocart">Thêm vào giỏ hàng</button>                
+                                    </div>        
+                                              
+                            </div>
+                            <div class="grid-column">
+                               
+                                    <div class="product-home">
+                                        <img class="product-img" src="https://fridayshopping.vn/wp-content/uploads/2020/03/428_T063.428.33.038.00-3.jpg" alt="">
+                                        <a href="index.html" style="text-decoration: none; color: black;" >
+                                        <p class="product-name">Tissot T063.428.33.038.00 Kính Sapphire, Bộ Máy Cơ</p></a>              
+                                         <div class="product-price">
+                                             <span class="product-priceold">25.290.000 </span> <sup>đ</sup> 
+                                             <span class="product-pricenew">20.232.000 </span> <sup>đ</sup>
+                                        </div>
+                                         <div class="product-star">
+                                             <i class="fa-solid fa-star"></i>
+                                             <i class="fa-solid fa-star"></i>
+                                             <i class="fa-solid fa-star"></i>
+                                             <i class="fa-solid fa-star"></i>
+                                             <i class="fa-solid fa-star"></i>
+                                        </div>     
+                                        <button style="margin: 10px; width: 131px; margin-left: 48px; cursor: pointer " class="addtocart">Thêm vào giỏ hàng</button>                  
+                                    </div>        
+                                 
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="product-title1"> 
+                        <b style="width: 35%; display: block; height: 2px; opacity: .1; background-color: currentColor;"></b>
+                        <span style="font-size:150%" id="G-Shock">
+                        Các hãng đồng hồ đang có </span>
+                        <b style="width: 35%; display: block; height: 2px; opacity: .1; background-color: currentColor;"></b>
+                    </div>
+                    <div class="slideshow-container">
+                        <div class="mySlides fade">
+                          <div class="numbertext">1 / 3</div>
+                          <div class="slidelist">
+                            <div class="slideitem">
+                                <img src="	https://fridayshopping.vn/wp-content/uploads/2020/04/thuong-hieu-seiko-350x350.png" alt="" class="slideimg">
+                                <div class="slidetext">
+                                   <h5 class="slidename">Seiko </h5>
+                                   <p class="slidnum ">148 Sản phẩm </p>
+                                </div>
+                            </div>
+                            <div class="slideitem">
+                               <img src="	https://fridayshopping.vn/wp-content/uploads/2020/04/thuong-hieu-longines-350x350.png" alt="" class="slideimg">
+                               <div class="slidetext">
+                                  <h5 class="slidename">Longines </h5>
+                                  <p class="slidnum ">37 Sản phẩm </p>
+                               </div>
+                           </div>
+                           <div class="slideitem">
+                               <img src="	https://fridayshopping.vn/wp-content/uploads/2020/04/thuong-hieu-orient-350x350.png" alt="" class="slideimg">
+                               <div class="slidetext">
+                                  <h5 class="slidename">Orient </h5>
+                                  <p class="slidnum ">24 Sản phẩm </p>
+                               </div>
+                           </div>
+                           <div class="slideitem">
+                               <img src="https://fridayshopping.vn/wp-content/uploads/2020/04/thuong-hieu-Frederique-Constant-350x350.png" alt="" class="slideimg">
+                               <div class="slidetext">
+                                  <h5 class="slidename">Frederique Constant  </h5>
+                                  <p class="slidnum ">27 Sản phẩm </p>
+                               </div>
+                           </div>
+                           <div class="slideitem">
+                               <img src="	https://fridayshopping.vn/wp-content/uploads/2020/04/thuong-hieu-mido-350x350.png" alt="" class="slideimg">
+                               <div class="slidetext">
+                                  <h5 class="slidename">Mido </h5>
+                                  <p class="slidnum ">17 Sản phẩm </p>
+                               </div>
+                           </div>
+                           <div class="slideitem">
+                               <img src="	https://fridayshopping.vn/wp-content/uploads/2020/04/thuong-hieu-rado-350x350.png" alt="" class="slideimg">
+                               <div class="slidetext">
+                                  <h5 class="slidename">Rado </h5>
+                                  <p class="slidnum ">27 Sản phẩm </p>
+                               </div>
+                           </div>
+                           <div class="slideitem">
+                               <img src="	https://fridayshopping.vn/wp-content/uploads/2020/04/thuong-hieu-tissot-350x350.png" alt="" class="slideimg">
+                               <div class="slidetext">
+                                  <h5 class="slidename">Tissot </h5>
+                                  <p class="slidnum ">39 Sản phẩm </p>
+                               </div>
+                           </div>
+                           <div class="slideitem">
+                               <img src="	https://fridayshopping.vn/wp-content/uploads/2020/04/thuong-hieu-doxa-350x350.png" alt="" class="slideimg">
+                               <div class="slidetext">
+                                  <h5 class="slidename">Doxa </h5>
+                                  <p class="slidnum ">75 Sản phẩm </p>
+                               </div>
+                          </div>
+                          </div>
+                        </div>        
+                        <div class="mySlides fade">
+                          <div class="numbertext">2 / 3</div>
+                          <div class="slidelist">
+                            <div class="slideitem">
+                                <img src="	https://fridayshopping.vn/wp-content/uploads/2020/04/thuong-hieu-gshock-babyg-350x350.png" alt="" class="slideimg">
+                                <div class="slidetext">
+                                   <h5 class="slidename">G-Shock </h5>
+                                   <p class="slidnum ">41 Sản phẩm </p>
+                                </div>
+                            </div>
+                            <div class="slideitem">
+                                <img src="	https://fridayshopping.vn/wp-content/uploads/2020/04/thuong-hieu-citizen-350x350.png" alt="" class="slideimg">
+                                <div class="slidetext">
+                                   <h5 class="slidename">Citizen </h5>
+                                   <p class="slidnum ">112 Sản phẩm </p>
+                                </div>
+                            </div>
+                            <div class="slideitem">
+                                <img src="	https://fridayshopping.vn/wp-content/uploads/2020/04/thuong-hieu-Dw-350x350.png" alt="" class="slideimg">
+                                <div class="slidetext">
+                                   <h5 class="slidename">
+                                    Daniel Wellington (DW)  </h5>
+                                   <p class="slidnum "></p>
+                                </div>
+                            </div>
+                            <div class="slideitem">
+                                <img src="	https://fridayshopping.vn/wp-content/uploads/2020/04/thuong-hieu-Claude-Bernard-350x350.png" alt="" class="slideimg">
+                                <div class="slidetext">
+                                   <h5 class="slidename">
+                                    Claude Bernard  </h5>
+                                   <p class="slidnum ">33 Sản phẩm </p>
+                                </div>
+                            </div>
+                            <div class="slideitem">
+                                <img src="https://fridayshopping.vn/wp-content/uploads/2020/04/thuong-hieu-casio-350x350.png" alt="" class="slideimg">
+                                <div class="slidetext">
+                                   <h5 class="slidename">Casio</h5>
+                                   <p class="slidnum ">77 Sản phẩm </p>
+                                </div>
+                            </div>
+                            <div class="slideitem">
+                                <img src="	https://fridayshopping.vn/wp-content/uploads/2020/04/thuong-hieu-candino-350x350.png" alt="" class="slideimg">
+                                <div class="slidetext">
+                                   <h5 class="slidename">Candino </h5>
+                                   <p class="slidnum ">24 Sản phẩm </p>
+                                </div>
+                            </div>
+                            <div class="slideitem">
+                                <img src="	https://fridayshopping.vn/wp-content/uploads/2020/04/thuong-hieu-ck-350x350.png" alt="" class="slideimg">
+                                <div class="slidetext">
+                                   <h5 class="slidename">
+                                    Calvin Klein (CK)  </h5>
+                                   <p class="slidnum ">68 Sản phẩm </p>
+                                </div>
+                            </div>
+                            <div class="slideitem">
+                                <img src="		https://fridayshopping.vn/wp-content/uploads/2020/04/thuong-hieu-bulova-350x350.png" alt="" class="slideimg">
+                                <div class="slidetext">
+                                   <h5 class="slidename">
+                                    Bulova  </h5>
+                                   <p class="slidnum ">48 Sản phẩm </p>
+                                </div>
+                            </div>
+                          </div>
+                        </div>                        
+                        <div class="mySlides fade">
+                          <div class="numbertext">3 / 3</div>
+                          <div class="slidelist">
+                            <div class="slideitem">
+                                <img src="	https://fridayshopping.vn/wp-content/uploads/2020/04/logo-hang-baby-G-350x350.png" alt="" class="slideimg">
+                                <div class="slidetext">
+                                   <h5 class="slidename">Baby - G </h5>
+                                   <p class="slidnum ">18 Sản phẩm </p>
+                                </div>
+                            </div>
+                            <div class="slideitem">
+                                <img src="https://fridayshopping.vn/wp-content/uploads/2020/04/thuong-hieu-adriatica-350x350.png" alt="" class="slideimg">
+                                <div class="slidetext">
+                                   <h5 class="slidename">Adriatica </h5>
+                                   <p class="slidnum ">34 Sản phẩm </p>
+                                </div>
+                            </div>
+                            <div class="slideitem">
+                                <img src="	https://fridayshopping.vn/wp-content/uploads/2020/04/thuong-hieu-timex-350x350.png" alt="" class="slideimg">
+                                <div class="slidetext">
+                                   <h5 class="slidename">TimeX </h5>
+                                   <p class="slidnum ">10 Sản phẩm </p>
+                                </div>
+                            </div>
+                            <div class="slideitem">
+                                <img src="https://fridayshopping.vn/wp-content/uploads/2020/04/thuong-hieu-ogival-350x350.png" alt="" class="slideimg">
+                                <div class="slidetext">
+                                   <h5 class="slidename">Ogival</h5>
+                                   <p class="slidnum ">5 Sản phẩm </p>
+                                </div>
+                            </div>
+                            <div class="slideitem">
+                                <img src="	https://fridayshopping.vn/wp-content/uploads/2020/04/thuong-hieu-skagen-350x350.png" alt="" class="slideimg">
+                                <div class="slidetext">
+                                   <h5 class="slidename">Skagen </h5>
+                                   <p class="slidnum ">9 Sản phẩm </p>
+                                </div>
+                            </div>
+                            <div class="slideitem">
+                                <img src="	https://fridayshopping.vn/wp-content/uploads/2020/04/thuong-hieu-op-350x350.png" alt="" class="slideimg">
+                                <div class="slidetext">
+                                   <h5 class="slidename">
+                                    Olym Pianus - Olympia Star  </h5>
+                                   <p class="slidnum ">67 Sản phẩm </p>
+                                </div>
+                            </div>
+                            <div class="slideitem">
+                                <img src="	https://fridayshopping.vn/wp-content/uploads/2020/04/thuong-hieu-michael-kors-350x350.png" alt="" class="slideimg">
+                                <div class="slidetext">
+                                   <h5 class="slidename">Michael Kors </h5>
+                                   <p class="slidnum ">17 Sản phẩm </p>
+                                </div>
+                            </div>
+                            <div class="slideitem">
+                                <img src="https://fridayshopping.vn/wp-content/uploads/2020/04/thuong-hieu-fossil-350x350.png" alt="" class="slideimg">
+                                <div class="slidetext">
+                                   <h5 class="slidename">Fossil </h5>
+                                   <p class="slidnum ">10 Sản phẩm </p>
+                                </div>
+                            </div>
+                            
+                          </div>
+                        </div>
+                        
+                        <a class="prev" onclick="plusSlides(-1)">❮</a>
+                        <a class="next" onclick="plusSlides(1)">❯</a>
+                        
+                    </div>
+                        <br>
+                        
+                    <div style="text-align:center; margin-top: -10x;">
+                          <span class="dot" onclick="currentSlide(1)"></span> 
+                          <span class="dot" onclick="currentSlide(2)"></span> 
+                          <span class="dot" onclick="currentSlide(3)"></span> 
+                    </div>
+                </div>
+                <div class=" cover">                
+                    <img  class="coverimg4" src="https://fridayshopping.vn/wp-content/uploads/2021/09/6-ly-do-mua-hang-tai-fridayshopping.jpg" alt="" style="margin-bottom: 0px;">
+                </div>
+                <div class="product1" style="height: 300px;background-color: #199a83; margin-bottom: 35px;">
+                    <div class="slideshow-container1">
+                        <div class="mySlides1 fade1">
+                          
+                          <div class="slidelist1">
+                              <img src="https://fridayshopping.vn/wp-content/uploads/2020/07/ceo-vo-van-nhat.png" alt="" >
+                              <div class="">
+                                <p class="slide1text">Tôi ủng hộ những nơi bán hàng chính hãng và đặt lợi ích khách hàng khi mang đến mức giá tốt <br> nhất. Vì vậy, tôi đã ủng hộ và lựa chọn Fridayshopping.vn.</p>
+                                <strong class="">Mr Nhật / CEO Thế Giới Thời Trang Baby</strong>                                
+                              </div>
+                            </div>
+                        </div>        
+                        <div class="mySlides1 fade1">
+                          
+                          <div class="slidelist1">
+                            <img src="https://fridayshopping.vn/wp-content/uploads/2021/10/anh-son.png" alt="" >
+                            <div class="">
+                                <p class="slide1text">Tôi thật sự an tâm và tin tưởng vào chất lượng các sản phẩm của Fridayshopping.vn. Lần đầu tiên, tại Việt Nam có <br> trang web bán đồng hồ chính hãng với mức giá tốt dành cho khách hàng.</p>
+                                <strong class="">Mr Sơn / Chuyên Gia Thời Trang Nam</strong>
+                            </div>   
+                          </div>                          
+                        </div>                        
+                        <div class="mySlides1 fade1">
+                          
+                          <div class="slidelist1">
+                            <img src="https://fridayshopping.vn/wp-content/uploads/2020/05/nguyen-dinh.png" alt="" >
+                            <div class="">
+                                <p class="slide1text">Cảm thấy tin cậy với phong cách làm việc chuyên nghiệp của Fridayshopping.vn. Giao hàng <br> nhanh hơn cam kết. Đã đi kiểm tra tại hãng và xác nhận chính hãng. sẽ giới thiệu bạn bè tới ủng <br> hộ ông chủ.</p>
+                                <strong class="">Nguyễn Định / Chuyên Gia Tư Vấn Chứng Khoán</strong>
+                               
+                            </div>
+                          </div>
+                        </div>
+                        <div class="mySlides1 fade1">
+                          
+                            <div class="slidelist1">
+                              <img src="https://fridayshopping.vn/wp-content/uploads/2020/05/tai-phan.png" alt="" >
+                              <div class="">
+                                  <p class="slide1text">Tuyệt vời, mình rất tin tưởng khi hợp tác với Fridayshopping. Mình tin tưởng vào hướng phát triển <br> của các bạn và tin rằng đây sẽ là một cơ hội mới cho ngành đồng hồ tại Việt Nam có thể tiếp cận tới <br> nhiều khách hàng hơn.</p>
+                                  <strong class="">Tài Phan / Quản Lý Nhân Sự</strong>
+                                 
+                              </div>
+                            </div>
+                          </div>
+                        
+                        <a class="prev1" onclick="plusSlides1(-1)">❮</a>
+                        <a class="next1" onclick="plusSlides1(1)">❯</a>
+                        
+                    </div>
+                        <br>
+                        
+                    <div style="text-align:center; margin-top: -10x;">
+                          <span class="dot1" onclick="currentSlide1(1)"></span> 
+                          <span class="dot1" onclick="currentSlide1(2)"></span> 
+                          <span class="dot1" onclick="currentSlide1(3)"></span> 
+                          <span class="dot1" onclick="currentSlide1(4)"></span> 
+                    </div>
+                </div>
+                <div class="product-title"> 
+                    <b style="width: 35%; display: block; height: 2px; opacity: .1; background-color: currentColor;"></b>
+                    <span style="font-size:150%;text-align: center;" id="G-Shock">
+                    Kinh nghiệm hay</span>
+                    <b style="width: 35%; display: block; height: 2px; opacity: .1; background-color: currentColor;"></b>
+                </div>
+                <div class="exp">
+                    <div class="expitem">
+                        <div class="exptime">
+                            <span> <span style="font-weight: bolder;">27</span> <br> Th3</span>
+                        </div>
+                        <img src="https://fridayshopping.vn/wp-content/uploads/2022/03/top-10-cac-hang-dong-ho-nam-noi-tieng-duoc-khuyen-dung.jpg" alt="">
+                        <h5>TOP 10 các hãng đồng hồ nam nổi tiếng được khuyên dùng</h5>
+                    </div>
+                    <div class="expitem">
+                        <div class="exptime">
+                            <span> <span style="font-weight: bolder;">27</span> <br> Th3</span>
+                        </div>
+                        <img src="https://fridayshopping.vn/wp-content/uploads/2022/03/top-8-%E2%80%8B%E2%80%8Bcac-dong-dong-ho-bulova-noi-tieng-duoc-khuyen-dung-11.jpg" alt="">
+                        <h5>TOP 8 ​​các dòng đồng hồ Bulova nổi tiếng được khuyên dùng</h5>
+                    </div>
+                    <div class="expitem">
+                        <div class="exptime">
+                            <span> <span style="font-weight: bolder;">26</span> <br> Th3</span>
+                        </div>
+                        <img src="https://fridayshopping.vn/wp-content/uploads/2022/03/he-lo-cach-de-dong-ho-co-qua-dem-khong-chet-may-sai-gio-9.jpg" alt="">
+                        <h5>Hé lộ cách để đồng hồ cơ qua đêm không chết máy, sai giờ</h5>
+                    </div>
+                    <div class="expitem">
+                        <div class="exptime">
+                            <span> <span style="font-weight: bolder;">25</span> <br> Th3</span>
+                        </div>
+                        <img src="https://fridayshopping.vn/wp-content/uploads/2022/03/top-8-%E2%80%8B%E2%80%8Bcac-dong-dong-ho-rolex-noi-tieng-duoc-khuyen-dung.jpg" alt="">
+                        <h5>TOP 15 ​​các dòng đồng hồ Rolex được khuyên dùng</h5>
                     </div>
                 </div>
                 
@@ -281,16 +837,18 @@
                 <div class="footer3">  
                     <h3> CHỨNG NHẬN</h3>
                     <div class="smallline"></div>
-                    <a href="" ><img src="https://fridayshopping.vn/wp-content/uploads/2020/05/icon-Chung-Nhan-Dai-Ly.png" alt="" style="width: 230px;"></a>
+                    <a href="" ><img src="https://fridayshopping.vn/wp-content/uploads/2020/05/icon-Chung-Nhan-Dai-Ly.png" alt="" style="width: 85%; max-width: 230px;"></a>
                     <p style="height:30px;"></p>
-                    <a href=""><img src="https://fridayshopping.vn/wp-content/uploads/2021/11/icon-shopee.png" alt=""style="width: 250px;"></a>
+                    <a href=""><img src="https://fridayshopping.vn/wp-content/uploads/2021/11/icon-shopee.png" alt=""style="width: 100%; max-width: 250px;"></a>
                 </div>
                 <div class="footer4">
                     <h3>FANPAGE</h3>
                     <div class="smallline"></div>
-                    <a href=""><img src="https://fridayshopping.vn/wp-content/uploads/2021/12/in-fanpage-fridayshopping.jpg" alt=""style="width: 300px;"></a>
+                    <a href=""><img src="https://fridayshopping.vn/wp-content/uploads/2021/12/in-fanpage-fridayshopping.jpg" alt=""style="width: 100%;max-width: 300px;"></a>
                 </div>
+               
             </footer>
+            <div style="width: 100%;height: 80px; background-color: black;"></div>
             <div class="chatbox"  >
                 
                 <i class="fa-brands fa-facebook-messenger"></i>
@@ -314,5 +872,9 @@
                 </div>
             </div>
         </div>
+        
+        <script src="product.js"></script>
         <script src="script.js"></script>
+        <script src="slide.js"></script>
+        <script src="sign.js"></script>
     </body>
