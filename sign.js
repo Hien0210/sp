@@ -12,7 +12,7 @@ if ( currentUser != 0){
     const tk = document.createElement('div')
     tk.innerHTML= `<div>
     <i class="fa-solid fa-user-tie"></i>
-    <a href="../SignIn/index.html">`+currentUser.username+`</a>
+    <a href="https://hien0210.github.io/SignIn/index.html">`+currentUser.username+`</a>
     <button class = "signout"> Đăng xuất </button> 
 </div>`
     parent.append(tk)

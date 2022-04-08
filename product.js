@@ -128,7 +128,7 @@ product.forEach(e =>{
     var gridcolumn = document.createElement('div')
     gridcolumn.innerHTML=  `<div class="product-home">
     <img class="product-img" src="`+e.img+`" alt="">
-    <a href="../produce/index.html" style="text-decoration: none; color: black;" ><p class="product-name">`+e.name+`</p>   </a>    
+    <a href="https://hien0210.github.io/produce/index.html" style="text-decoration: none; color: black;" ><p class="product-name">`+e.name+`</p>   </a>    
      <div class="product-price">
      <span class="product-priceold">`+e.priceold+`</span>
          <span class="product-pricenew">`+e.pricenew+`</span> <sup>đ</sup>
