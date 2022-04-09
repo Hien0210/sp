@@ -190,7 +190,7 @@ searchInput.addEventListener('input', (e) => {
                 .map(
                     (product) => `
                     <li class="search-item">
-                        <a href="" class= "search-itema">
+                        <a href="https://hien0210.github.io/produce/index.html" class= "search-itema">
                             <div class="search-item__img">
                                 <img src="${
                                     product.img
