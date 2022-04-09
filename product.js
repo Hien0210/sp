@@ -190,7 +190,7 @@ searchInput.addEventListener('input', (e) => {
                 .map(
                     (product) => `
                     <li class="search-item">
-                        <a href="https://hien0210.github.io/produce/index.html">
+                        <a href="" class= "search-itema">
                             <div class="search-item__img">
                                 <img src="${
                                     product.img
@@ -207,14 +207,15 @@ searchInput.addEventListener('input', (e) => {
                 )
                 .join('');
 
-                const itemsearch = document.querySelectorAll('.search-item')
-                itemsearch.forEach((button,index) =>{
-                    button.addEventListener('click',(e)=>{       
+                const itemsearch = document.querySelectorAll('.search-item__text')
+                itemsearch.forEach((button,index) =>{   
+                    button.addEventListener('click',(e)=>{ 
+                    
                 const item1 = localStorage.getItem("item1")
                 ? JSON.parse(localStorage.getItem("item1"))
                 : [];
                    item1.push({ 
-                       name1 : e.target.innerHTML,
+                       name1 : e.target.querySelector('.item-name').innerHTML,
                    })
                    localStorage.setItem("item1", JSON.stringify(item1));
                    console.log(item1);
