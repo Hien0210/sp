@@ -152,7 +152,6 @@ product.forEach(e =>{
     
 })
 //----------move item product-----------
-var itemclick
 const itemname = document.querySelectorAll('.product-name')
 itemname.forEach((button,index) =>{
     button.addEventListener('click',(e)=>{       
@@ -166,3 +165,76 @@ const item1 = localStorage.getItem("item1")
    console.log(item1);
 })
 })
+//----------search-----------
+const searchInput = document.querySelector('.header-search-ipput');
+const searchResults = document.querySelector('.search-list');
+
+searchInput.addEventListener('input', (e) => {
+    console.log(1);
+    const search = e.target.value.replace(/\s+/g, ' ').trim().toLowerCase(); // Loại bỏ những khoảng trống thừa khi người dùng nhập
+    if (search) {
+        const res = product.filter((product) =>
+            product.name.toLowerCase().includes(search) // Lọc ra những kết quả True từ file data
+        );
+        searchResults.style.display = 'block';
+        if (!res[0]) {
+            searchResults.innerHTML = `
+                <li class="search-no-result">
+                    <i>Không tìm thấy sản phẩm</i>
+                </li>
+            `;
+        }
+
+        else {
+            searchResults.innerHTML = res
+                .map(
+                    (product) => `
+                    <li class="search-item">
+                        <a href="https://hien0210.github.io/produce/index.html">
+                            <div class="search-item__img">
+                                <img src="${
+                                    product.img
+                                }" alt="" style="width: 100%;">
+                            </div>
+                            <div class="search-item__text">
+                                <p class="item-name" style= "margin-bottom: 0px;">${product.name}</p>
+                                <p class="item-price">
+                                `+product.pricenew+`</p>
+                            </div>
+                        </a>
+                    </li>
+                `
+                )
+                .join('');
+
+                const itemsearch = document.querySelectorAll('.search-item')
+                itemsearch.forEach((button,index) =>{
+                    button.addEventListener('click',(e)=>{       
+                const item1 = localStorage.getItem("item1")
+                ? JSON.parse(localStorage.getItem("item1"))
+                : [];
+                   item1.push({ 
+                       name1 : e.target.innerHTML,
+                   })
+                   localStorage.setItem("item1", JSON.stringify(item1));
+                   console.log(item1);
+                })
+                })    
+            }
+
+    } 
+    
+    else {
+        searchResults.style.display = 'none';
+    }
+});
+
+searchInput.addEventListener('focus', (e) => {
+    if (e.target.value.replace(/\s+/g, ' ').trim())
+        searchResults.style.display = 'block';
+});
+
+window.addEventListener('click', (e) => {
+    if (!searchResults.contains(e.target) && !searchInput.contains(e.target))
+        searchResults.style.display = 'none';
+});
